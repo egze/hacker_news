@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "hacker_news"
   gem.homepage = "http://github.com/egze/hacker_news"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Wrapper for Hacker News website}
+  gem.description = %Q{Fetches newest 5 pages from Hacker News and returns convenient ruby objects}
   gem.email = "aleksandr.lossenko@gmail.com"
   gem.authors = ["Aleksandr Lossenko"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

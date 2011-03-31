@@ -1,5 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
-require 'will_paginate'
-require 'lib/hacker_news/item.rb'
-require 'lib/hacker_news/scraper.rb'
+require 'iconv'
+require 'lib/hacker_news/item'
+require 'lib/hacker_news/scraper'
