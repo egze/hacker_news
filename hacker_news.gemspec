@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{hacker_news}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aleksandr Lossenko"]
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "hacker_news.gemspec",
     "lib/hacker_news.rb",
     "lib/hacker_news/item.rb",
     "lib/hacker_news/scraper.rb",
