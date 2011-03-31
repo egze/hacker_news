@@ -1,5 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
 require 'iconv'
-require 'lib/hacker_news/item'
-require 'lib/hacker_news/scraper'
+require 'hacker_news/item'
+require 'hacker_news/scraper'
