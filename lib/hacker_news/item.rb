@@ -12,11 +12,12 @@ module HackerNews
       @title = Iconv.iconv('iso-8859-1//translit', 'utf-8', node.text)[0].to_s.strip
       @url = node[:href]
       @position = position
-      @points = points_comments_td.css("span")[0].text.to_i
-      @id = points_comments_td.css("span")[0][:id].split("_")[1].to_i
-      @user = points_comments_td.css("a")[0].text.strip
-      @comments = points_comments_td.css("a")[1].text.to_i
-      @created_at = points_comments_td.text.match(/by [-\w]+ (.*) \|/)[1].strip rescue ""
+      @points = points_comments_td.css("span")[0].text.to_i rescue nil
+      @id = points_comments_td.css("span")[0][:id].split("_")[1].to_i rescue nil
+      @user = points_comments_td.css("a")[0].text.strip rescue nil
+      @comments = points_comments_td.css("a")[1].text.to_i rescue nil
+      @created_at = points_comments_tr.text.match(/by [-\w]+ (.*) \|/)[1].strip rescue nil
+      @created_at ||= points_comments_tr.text
     end
     
   end
