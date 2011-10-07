@@ -2,7 +2,7 @@ module HackerNews
   
   class Item
     
-    attr_accessor :id, :position, :points, :title, :url, :comments, :user, :created_at
+    attr_accessor :item_id, :position, :points, :title, :url, :comments_count, :user, :created_at
     
     def initialize(node, position)
       tr = node.parent.parent
@@ -14,11 +14,15 @@ module HackerNews
       @url = node[:href]
       @position = position
       @points = points_comments_td.css("span")[0].text.to_i rescue nil
-      @id = points_comments_td.css("span")[0][:id].split("_")[1].to_i rescue nil
+      @item_id = points_comments_td.css("span")[0][:id].split("_")[1].to_i rescue nil
       @user = points_comments_td.css("a")[0].text.strip rescue nil
-      @comments = points_comments_td.css("a")[1].text.to_i rescue nil
+      @comments_count = points_comments_td.css("a")[1].text.to_i rescue 0
       @created_at = points_comments_tr.text.match(/by [-\w]+ (.*) \|/)[1].strip rescue nil
       @created_at ||= points_comments_tr.text
+    end
+    
+    def comments
+      @comments ||= Scraper.comments(self.item_id)
     end
     
   end

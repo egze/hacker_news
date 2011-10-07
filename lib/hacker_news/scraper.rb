@@ -23,6 +23,19 @@ module HackerNews
       result
     end
     
+    def self.comments(item_id)
+      response = Net::HTTP.start( "news.ycombinator.com", 80 ) do |http|
+        http.get("/item?id=#{item_id}", "User-Agent" => "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.3 (KHTML, like Gecko) Chrome/15.0.872.0 Safari/535.2").body
+      end
+      doc = Nokogiri::HTML(response)
+      comment_images = doc.css('img[src="http://ycombinator.com/images/s.gif"]').select {|c| c.attributes["width"].value == "0"}
+      top_level_comments = comment_images.inject([]) do |arr, comment_image|
+        comment = comment_image.parent.parent.parent.parent.parent
+        arr << Comment.new(item_id, comment) if comment && comment.css("span.comment font")[0]
+        arr
+      end
+    end
+    
   end
   
 end
