@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "hacker_news"
-  s.version = "0.2.3"
+  s.name = %q{hacker_news}
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aleksandr Lossenko"]
-  s.date = "2011-10-07"
-  s.description = "Fetches newest 5 pages from Hacker News and returns convenient ruby objects"
-  s.email = "aleksandr.lossenko@gmail.com"
+  s.date = %q{2011-10-07}
+  s.description = %q{Fetches newest 5 pages from Hacker News and returns convenient ruby objects}
+  s.email = %q{aleksandr.lossenko@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README",
@@ -28,17 +28,19 @@ Gem::Specification.new do |s|
     "VERSION",
     "hacker_news.gemspec",
     "lib/hacker_news.rb",
+    "lib/hacker_news/comment.rb",
     "lib/hacker_news/item.rb",
     "lib/hacker_news/scraper.rb",
+    "test/fixtures/comments.html",
     "test/fixtures/index.html",
     "test/helper.rb",
     "test/unit/test_scraper.rb"
   ]
-  s.homepage = "http://github.com/egze/hacker_news"
+  s.homepage = %q{http://github.com/egze/hacker_news}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "Wrapper for Hacker News website"
+  s.rubygems_version = %q{1.6.2}
+  s.summary = %q{Wrapper for Hacker News website}
   s.test_files = [
     "test/helper.rb",
     "test/unit/test_scraper.rb"
