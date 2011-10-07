@@ -9,7 +9,8 @@ module HackerNews
       points_comments_tr = tr.next
       points_comments_td = points_comments_tr.css("td.subtext")[0]
       
-      @title = Iconv.iconv('iso-8859-1//translit', 'utf-8', node.text)[0].to_s.strip
+      #@title = Iconv.iconv('iso-8859-1//translit', 'utf-8', node.text)[0].to_s.strip
+      @title = Iconv.iconv('iso-8859-1//IGNORE', 'US-ASCII', node.text)[0].to_s.strip
       @url = node[:href]
       @position = position
       @points = points_comments_td.css("span")[0].text.to_i rescue nil
